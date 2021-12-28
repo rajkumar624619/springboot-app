@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Product Editing</title>
+</head>
+
+<body>
+	<div align="center">
+	<form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+     </form>
+		<h3>Product Edit</h3>
+		<br>
+		<form action="/product/update" method="POST">
+		<input type="hidden" th:attr="name=${_csrf.parameterName},value=${_csrf.token}"/> 
+			<table>
+				<tr>
+					<td>Product Id</td>
+					<td><input type="text" name="productid" th:value="${editProduct.productid}" readonly>
+					</td>
+				</tr>
+				<tr>
+					<td>Product Name</td>
+					<td><input type="text" name="productname" th:value="${editProduct.productname}" required>
+					</td>
+				</tr>
+				<tr>
+					<td>Unit Of Cost</td>
+					<td><input type="text" name="unitcost" th:value="${editProduct.unitcost}" required>
+					</td>
+				</tr>
+			</table>
+			</br>
+			<input type="submit" value="Update"/>
+		</form>
+	</div>
+</body>
+
+</html>

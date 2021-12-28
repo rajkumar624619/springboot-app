@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<div align="center">
+	<form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+		<h1>Product Form</h1>
+		<br>
+		<form action="/product/adds" method="post">
+		<input type="hidden" th:attr="name=${_csrf.parameterName},value=${_csrf.token}"/>
+			<table>
+				<tr>
+					<td>Product Id</td>
+					<td><input type="text" name="productid" required></td>
+				</tr>
+
+
+				<tr>
+					<td>Product Name</td>
+					<td><input type="text" name="productname" required></td>
+				</tr>
+
+				<tr>
+					<td>Unit Of Cost</td>
+					<td><input type="number" name="unitcost" required></td>
+				</tr>
+
+
+			</table>
+
+			<br>
+			<input type="submit" value="save" />
+
+
+
+		</form>
+
+
+
+	</div>
+</body>
+
+</html>
